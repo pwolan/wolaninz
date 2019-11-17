@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+}
+
+
+.h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 350px;
+
+    @media(min-width: $medium) {
+        max-width: 600px;
+        width: 80%;
+    }
+
+    @media(min-width: $large) {
+        max-width: 1200px;
+        width: 60%;
+    }
+}
+
+section {
+    padding: 40px 0;
+}
+
+strong {
+    color: $primary;
+}

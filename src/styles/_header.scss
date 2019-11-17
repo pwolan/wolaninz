@@ -1,0 +1,151 @@
+.navbar {
+  height: 60px;
+  background-color: $primary;
+  color: #fff;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.navigation {
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    height: 100%;
+  }
+
+  &__item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+
+  &__link {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    margin: 0 15px;
+    // border: solid $primary 2px;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      // border: solid $secondary 2px;
+      color: $secondary;
+    }
+
+    &.active {
+      color: $warning;
+
+      &::before {
+        background-color: $warning;
+      }
+    }
+
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $secondary;
+      transform: translateY(5px);
+      transition: 0.3s;
+    }
+
+    &:hover::before,
+    &.active::before {
+      transform: translateY(0);
+    }
+
+    @media(min-width: $medium) {
+      display: flex;
+    }
+  }
+}
+
+.slider {
+  width: 100%;
+  height: 90vh;
+  background-image: url(../images/banner.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  &__bg {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+
+  &__header {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  &__rap {
+    font-size: 16px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  &__read-more {
+    display: block;
+    font-size: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: solid 2px;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $primary;
+
+    }
+  }
+
+  @media(min-width: $medium) {
+    height: 50vh;
+
+    &__rap {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  @media(min-width: $large) {
+    &__body {
+      width: 50%;
+    }
+
+  }
+
+  @media(min-width: $xlarge) {
+    &__body {
+      width: 50%;
+    }
+  }
+}
