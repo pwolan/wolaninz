@@ -1,8 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
 const SecondaryHeader = ({ title }) => {
-  console.log(title)
-
   return (
     <header className="header">
       <div className="slider header">

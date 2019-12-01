@@ -5,12 +5,11 @@ import { graphql, Link, StaticQuery } from "gatsby"
 import Footer from "../layout/Footer"
 import Lightbox from "../components/Lightbox"
 class Gallery extends React.Component {
-  data = this.props.data
   state = {
     lightBoxOn: false,
+    mainImg: "",
   }
   handleImgClick = e => {
-    console.log(e.target.src)
     this.setState({
       lightBoxOn: true,
       mainImg: e.target.src,
@@ -22,7 +21,7 @@ class Gallery extends React.Component {
       mainImg: "",
     })
   }
-  images = this.data.wolaninzieba.assets
+  images = this.props.data.wolaninzieba.assets
   render() {
     const { images, handleImgClick, handleCloseRequest } = this
     const { lightBoxOn, mainImg } = this.state
@@ -43,14 +42,13 @@ class Gallery extends React.Component {
               </div>
             ))}
           </section>
-          {lightBoxOn && (
-            <Lightbox
-              isOpen={lightBoxOn}
-              imagesList={images}
-              handleClose={handleCloseRequest}
-              mainImg={mainImg}
-            />
-          )}
+
+          <Lightbox
+            isOpen={lightBoxOn}
+            imagesList={images}
+            handleClose={handleCloseRequest}
+            mainImg={mainImg}
+          />
         </div>
         <Footer />
       </React.Fragment>
