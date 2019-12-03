@@ -18,27 +18,22 @@ const Posts = props => {
       }
     }
   `)
-
   let { posts } = data.wolaninzieba
   if (props.index) posts = posts.slice(0, 3)
   return (
     <section className="new-posts">
       <h1 className="h1">Najnowsze wpisy</h1>
       {posts.map(
-        ({ title, description, thumbnail, thumbnail: { url, id } }) => (
-          <article className="post" key={url}>
-            {/* change to id */}
+        ({ title, id, description, thumbnail, thumbnail: { url } }) => (
+          <article className="post" key={id}>
             <div className="post__img-wrapper">
               <img className="post__img" src={url} alt={id} />
             </div>
             <div className="post__body">
               <h2 className="post__header">{title}</h2>
               <p className="post__text">{description}</p>
-              <Link to="/" className="post__read-more">
+              <Link to={`/news/${id}`} className="post__read-more">
                 czytaj więcej...
-              </Link>
-              <Link to="/" className="post__read-more">
-                zobacz galerię
               </Link>
             </div>
           </article>
@@ -54,3 +49,7 @@ const Posts = props => {
 }
 
 export default Posts
+
+// <Link to="/" className="post__read-more">
+//                 zobacz galerię
+//               </Link>

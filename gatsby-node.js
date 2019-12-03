@@ -57,7 +57,7 @@ exports.createPages = async ({
         let slugtitle = post.title.toLowerCase();
         slugtitle = slugtitle.trim().split(' ').join('-');
         createPage({
-            path: post.id,
+            path: `news/${post.id}`,
             component: postTemplate,
             context: {
                 data: post

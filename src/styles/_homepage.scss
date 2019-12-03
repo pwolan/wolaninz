@@ -41,6 +41,11 @@
     padding: 0 25px;
   }
 
+  &__header {
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+
   &__body {
     width: 100%;
     margin-top: 10px;
@@ -60,6 +65,7 @@
     color: black;
     text-align: center;
     text-decoration: none;
+    font-size: 1.1rem;
 
     &:hover {
       text-decoration: underline;
@@ -76,6 +82,10 @@
 
     &__body {
       width: 60%;
+    }
+
+    &__header {
+      margin-top: 0;
     }
   }
 }
@@ -121,6 +131,12 @@
   &__img-container {
     height: 200px;
     overflow: hidden;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 0px 17px -3px rgba(0, 0, 0, 0.75);
+    }
   }
 
   &__img {

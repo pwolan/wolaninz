@@ -64,7 +64,7 @@ export default props => (
           assets(
             where: { thumbnailPost_none: { _search: "" } }
             orderBy: updatedAt_DESC
-            first: 6
+            first: 18
           ) {
             id
             fileName

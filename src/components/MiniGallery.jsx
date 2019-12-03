@@ -1,7 +1,8 @@
-import React from "react"
+import React, { Component } from "react"
 import { graphql, Link, StaticQuery } from "gatsby"
 import Lightbox from "./Lightbox"
-class SmallGallery extends React.Component {
+
+class MiniGallery extends Component {
   state = {
     lightBoxOn: false,
     mainImg: "",
@@ -20,10 +21,12 @@ class SmallGallery extends React.Component {
     })
   }
 
-  images = this.props.data.wolaninzieba.assets
   render() {
-    const { images, handleCloseRequest, handleImgClick } = this
+    const { handleCloseRequest, handleImgClick } = this
     const { mainImg, lightBoxOn } = this.state
+    const { images } = this.props
+    console.log(images)
+    console.log(images)
     return (
       <section className="small-gallery">
         <h2 className="small-gallery__header h1">Ostatnie projekty</h2>
@@ -50,25 +53,4 @@ class SmallGallery extends React.Component {
   }
 }
 
-// make var to handle how much imgs $COUNT_FIRST
-// unify gallery component
-export default props => (
-  <StaticQuery
-    query={graphql`
-      {
-        wolaninzieba {
-          assets(
-            where: { thumbnailPost_none: { _search: "" } }
-            orderBy: updatedAt_DESC
-            first: 6
-          ) {
-            id
-            fileName
-            url
-          }
-        }
-      }
-    `}
-    render={data => <SmallGallery data={data} {...props} />}
-  />
-)
+export default MiniGallery
